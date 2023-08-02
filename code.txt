@@ -1,0 +1,5 @@
+float x = 10;
+int y;
+int z;
+x = y + z;
+print(x);
