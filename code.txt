@@ -1,4 +1,4 @@
-float x = 4.15;
+f2loat x = 4.15;
 if(x == .023) print(x);
 # nada @qui será levado 3m consideRAÇão hihi
 print(x + 4);

@@ -70,8 +70,14 @@ def isHash(char):
     return True
   return False
 
-# checar se o caractere é espaço ou quebra de linha
+# checar se o caractere é espaço
 def isSpace(char):
-  if char == ' ' or char == '\n':
+  if char == ' ':
+    return True
+  return False
+
+# checar se o caractere é quebra de linha
+def isNewLine(char):
+  if char == '\n':
     return True
   return False

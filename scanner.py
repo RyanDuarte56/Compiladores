@@ -1,10 +1,13 @@
-from controller import isLetter, isDigit, isReserved, isDelimiter, isParenthesis, isEqualSign, isGreaterSign, isLessSign, isExclamationSign, isMath, isDot, isHash, isSpace
+from controller import isLetter, isDigit, isReserved, isDelimiter, isParenthesis, isEqualSign, isGreaterSign, isLessSign, isExclamationSign, isMath, isDot, isHash, isSpace, isNewLine
 
 def Scanner(input):
     state = 0
     pos = 0
     content = ''
+    linha = 1
+    coluna = 1
 
+    
     while pos < len(input):
         char = input[pos]
         match state:
@@ -34,7 +37,13 @@ def Scanner(input):
                     print('%c -> MATH_OP'%(char))
                 elif isSpace(char):
                     pos += 1
-                    pass
+                    continue
+                elif isNewLine(char):
+                    linha += 1
+                    coluna = 0
+                else:
+                    print('CARACTERE INVÁLIDO NA LINHA %i COLUNA %i'%(linha, coluna-1))
+                    quit()
             case 1:
                 if isLetter(char) or isDigit(char):
                     content += char
@@ -87,4 +96,7 @@ def Scanner(input):
             case 6:
                 if char == '\n':
                     state = 0
+                    linha += 1
+                    coluna = 0
         pos += 1
+        coluna += 1
